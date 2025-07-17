@@ -1,6 +1,8 @@
 [build]
   # Directory to publish (contains your website files)
   publish = "src"
+  # Explicitly set no build command for static site
+  command = ""
 
 # Headers for security and performance
 [[headers]]

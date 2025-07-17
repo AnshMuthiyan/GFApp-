@@ -1,0 +1,12 @@
+{
+  "name": "for-her-web-app",
+  "version": "1.0.0",
+  "description": "A personal web application with multiple interactive features",
+  "scripts": {
+    "build": "echo 'No build needed - static HTML site'",
+    "start": "echo 'Open src/index.html in browser'"
+  },
+  "keywords": ["static", "html", "personal", "webapp"],
+  "author": "AnshMuthiyan",
+  "license": "MIT"
+}
