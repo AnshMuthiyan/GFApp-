@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Open When...</title>
+    <link rel="stylesheet" href="style.css" />
+     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #fff0f5;
+    }
+
+    h1 {
+      font-family: 'Bagel Fat One', cursive;
+      font-size: 3em;
+      color: #ff4da6;
+    }
+
+    button {
+      font-family: 'Bagel Fat One', cursive;
+      font-size: 1.5em;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ffc0cb;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #afff80;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+  </style>
+    <style>
+      .message {
+        display: none;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #afff80;
+        font-size: 1.2em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Open When...</h1>
+    <ul>
+      <li>
+        <button onclick="showMessage('crash')">You're crashing out</button>
+      </li>
+      <li><button onclick="showMessage('miss')">You miss me</button></li>
+      <li>
+        <button onclick="showMessage('doubt')">You're doubting yourself</button>
+      </li>
+      <li>
+        <button onclick="showMessage('Good')">Something Good Happened</button>
+      </li>
+      <li><button onclick="showMessage('random')">Idk</button></li>
+    </ul>
+
+    <div id="message-container" class="message"></div>
+
+    <br />
+    <button onclick="location.href='index.html'">Back</button>
+
+    <script>
+      const messages = {
+        crash: [
+          "I love you. Take a deep breath. You're going to be okay. I'm always here.",
+        ],
+        random: [
+          "You are stronger than you think.",
+          "Remember to smile today!",
+          "Take a moment for yourself.",
+          "I'm proud of you.",
+          "You got this!",
+        ],
+        miss: [
+          "I miss you too. I'm prolly explaining some concept to the Aleena voice in my head.",
+        ],
+        doubt: [
+          "We both know you can do it, unfortunately it prolly doesn't feel that way.",
+        ],
+        Good: ["YAYYYY. Ok now tell me, why r u checking this first."],
+      };
+
+      function showMessage(key) {
+        const container = document.getElementById("message-container");
+        container.innerText =
+          messages[key][Math.floor(Math.random() * messages[key].length)];
+        container.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

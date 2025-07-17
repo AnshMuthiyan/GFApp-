@@ -1,0 +1,91 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  padding: 30px;
+  background-color: #acd6f6;
+  color: #3c2a4d;
+}
+
+bodyv2 {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  padding: 30px;
+  background-color: #ace4f6;
+  color: #3c2a4d;
+}
+
+img {
+  border-radius: 15px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.buttonContainer {
+  margin-top: 30px;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff7eb9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #ff5582;
+}
+
+img {
+  mask: radial-gradient(at 70% 31%, #000 29%, #0000 30%),
+    radial-gradient(at 30% 31%, #000 29%, #0000 30%),
+    linear-gradient(#101 0 0) bottom/100% 50% no-repeat;
+  clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+}
+
+#randomPhoto:hover {
+  transform: scale(1.25);
+}
+
+.question {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #ff00bf;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ffb6c1;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #ff7eb3;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #ffeef2;
+}
+tr:nth-child(odd) {
+  background-color: pink;
+}
+.timestamp {
+  font-size: 0.8em;
+  color: grey;
+  font-style: italic;
+  width: 20px
+}
