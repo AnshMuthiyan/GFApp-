@@ -1,7 +1,7 @@
 const nicknames = ["Apeena", "Aleena", "buddy", "bub", "bucko"];
 
 // Wait until the HTML is fully loaded
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded"), () => {
   // Set a random nickname
   const randomNickname =
     nicknames[Math.floor(Math.random() * nicknames.length)];
@@ -10,63 +10,82 @@ window.addEventListener("DOMContentLoaded", () => {
   ).innerText = `Hello, ${randomNickname}`;
 
   // Set a random photo
-  const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
-  document.getElementById("randomPhoto").src = randomPhoto;
-});
+    // Set a random photo from the local folder
+    const photoFolder = "aleena and me memories/";
+    const photoFiles = [
+      "IMG-20241019-WA0014.jpg",
+      "IMG-20241027-WA0002.jpg",
+      "IMG-20241027-WA0005.jpg",
+      "IMG-20241101-WA0001.jpg",
+      "IMG-20241101-WA0005.jpg",
+      "IMG-20241101-WA0010.jpg",
+      "IMG-20241102-WA0003.jpg",
+      "IMG-20241102-WA0010.jpg",
+      "IMG-20241102-WA0012.jpg",
+      "IMG-20241102-WA0014.jpg",
+      "IMG_20240922_140209~3.jpg",
+      "IMG_20240927_223740_142.jpg",
+      "IMG_20240927_223925_456.jpg",
+      "IMG_20240927_223930_457.jpg",
+      "IMG_20240927_223935_945.jpg",
+      "IMG_20240927_223937_456.jpg",
+      "IMG_20240927_224118_988.jpg",
+      "IMG_20240927_224128_569.jpg",
+      "IMG_20240927_224130_380.jpg",
+      "PXL_20240920_014117856.MP.jpg",
+      "PXL_20240920_014245005.jpg",
+      "PXL_20240920_014249144.jpg",
+      "PXL_20240920_015214353.jpg",
+      "PXL_20240921_011130176.jpg",
+      "PXL_20240927_044844359.MP.jpg",
+      "PXL_20240927_044937275.MP.jpg",
+      "PXL_20240927_044948920.MP.jpg",
+      "PXL_20240927_060454775.jpg",
+      "PXL_20240927_060458838.MP.jpg",
+      "PXL_20241007_005710804.jpg",
+      "PXL_20241025_042201677.jpg",
+      "PXL_20241027_033122023.jpg",
+      "PXL_20241128_220307039.MP.jpg",
+      "PXL_20241202_223431396.MP.jpg",
+      "PXL_20241205_033941398.jpg",
+      "PXL_20250114_014854233.jpg",
+      "PXL_20250322_220112704.jpg",
+      "PXL_20250405_211810373.jpg",
+      "PXL_20250410_165409483.jpg",
+      "PXL_20250412_201031263.jpg",
+      "PXL_20250412_201042600.jpg",
+      "PXL_20250412_204637827.jpg",
+      "PXL_20250412_215359362.jpg",
+      "PXL_20250423_172510618.jpg",
+      "PXL_20250427_012117763.jpg",
+      "PXL_20250427_012133303.NIGHT.jpg",
+      "PXL_20250430_214238592.jpg",
+      "PXL_20250430_215219819.jpg",
+      "PXL_20250430_215912798.jpg",
+      "PXL_20250430_231231698.jpg",
+      "PXL_20250430_231233078.jpg",
+      "PXL_20250501_043224867.jpg",
+      "PXL_20250501_210328669.jpg",
+      "PXL_20250502_011134391.jpg",
+      "PXL_20250502_011155331.jpg",
+      "PXL_20250502_011205036.jpg",
+      "PXL_20250503_182842350.jpg",
+      "PXL_20250503_183146870.jpg",
+      "PXL_20250503_185849371.jpg",
+      "PXL_20250503_203612120.jpg",
+      "PXL_20250504_162831175.jpg",
+      "PXL_20250504_204505131.jpg",
+      "PXL_20250504_204618418.jpg"
+    ];
 
-const photos = [
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/photo1.jpg?v=1746484216687",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/photo2.jpg?v=1746484244136",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250423_172510618.jpg?v=1746834159976",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_202504_30_215912798.jpg?v=1746834600808",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250502_011132998.MP.jpg?v=1746835292331",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250502_011155331.jpg?v=1746835310583",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240920_014117856.MP.jpg?v=1746835338309",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_223740_142.jpg?v=1747411628400",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_223930_457.jpg?v=1747411630755",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_223935_945.jpg?v=1747411633774",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_223937_456.jpg?v=1747411637777",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_224128_569.jpg?v=1747411642490",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_224130_380.jpg?v=1747411644924",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241019-WA0014.jpg?v=1747411647857",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG_20240927_223925_456.jpg?v=1747411671272",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241027-WA0005.jpg?v=1747411678351",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241027-WA0002.jpg?v=1747411686317",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241101-WA0001.jpg?v=1747411692748",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241101-WA0005.jpg?v=1747411697361",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241101-WA0005.jpg?v=1747411697361",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241102-WA0003.jpg?v=1747411700763",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/IMG-20241102-WA0003.jpg?v=1747411700763",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240920_014249144.jpg?v=1747411720138",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240920_015214353.jpg?v=1747411723535",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240921_011130176.jpg?v=1747411727166",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240927_044844359.MP.jpg?v=1747411730662",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240927_044937275.MP.jpg?v=1747411775309",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240927_044937275.MP.jpg?v=1747411775309",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240927_060454775.jpg?v=1747411780897",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20240927_060458838.MP.jpg?v=1747411785651",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241007_005710804.jpg?v=1747411792410",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241025_042201677.jpg?v=1747411799577",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241027_033122023.jpg?v=1747411805722",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241128_220307039.MP.jpg?v=1747411812905",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241202_223431396.MP.jpg?v=1747411820468",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20241205_033941398.jpg?v=1747411826233",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250114_014854233.jpg?v=1747412408391",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250121_021758516.MP.jpg?v=1747412417416",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250215_052332107.jpg?v=1747412420430",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250322_220112704.jpg?v=1747412424116",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250405_211810373.jpg?v=1747412427799",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250410_165409483.jpg?v=1747412431327",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250412_201031263.jpg?v=1747412445403",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250412_201042600.jpg?v=1747412447998",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250412_204637827.jpg?v=1747412452173",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250423_172510618.jpg?v=1747412460442",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250430_215912798.jpg?v=1747412467634",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250502_011132998.MP.jpg?v=1747412473068",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250502_011155331.jpg?v=1747412477790",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250503_203612120.jpg?v=1747412485450",
-  "https://cdn.glitch.global/a2e4bc72-4ae4-4dd6-9d44-1805e80f1910/PXL_20250504_162831175.jpg?v=1747412487823",
-];
+    function getRandomPhoto() {
+      const index = Math.floor(Math.random() * photoFiles.length);
+      return photoFolder + photoFiles[index];
+    }
+
+    // Usage example:
+    let photoUrl = getRandomPhoto();
+    document.getElementById("randomPhoto").src = photoUrl;
 
 function updateCountdown() {
   const countdownElement = document.getElementById("countdown");
@@ -90,4 +109,4 @@ function updateCountdown() {
 window.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-});
+})};
