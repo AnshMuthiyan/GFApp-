@@ -1,13 +1,11 @@
 const nicknames = ["Apeena", "Aleena", "buddy", "bub", "bucko"];
 
 // Wait until the HTML is fully loaded
-window.addEventListener("DOMContentLoaded"), () => {
+window.addEventListener("DOMContentLoaded", () => {
   // Set a random nickname
   const randomNickname =
     nicknames[Math.floor(Math.random() * nicknames.length)];
-  document.getElementById(
-    "nicknameHeader"
-  ).innerText = `Hello, ${randomNickname}`;
+  document.getElementById("nicknameValue").textContent = randomNickname;
 
   // Set a random photo
     // Set a random photo from the local folder
@@ -109,4 +107,4 @@ function updateCountdown() {
 window.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-})};
+})});
