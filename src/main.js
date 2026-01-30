@@ -87,14 +87,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function updateCountdown() {
   const countdownElement = document.getElementById("countdown");
-  const targetDate = new Date("2025-08-18T00:00:00");
+  const targetDate = new Date("2026-08-18T00:00:00");
   const now = new Date();
   const diff = targetDate - now;
 
-  if (diff <= 0) {
-    countdownElement.innerText = "The day has arrived!";
-    return;
-  }
+  //if (diff <= 0) {
+  //  countdownElement.innerText = "The day has arrived!";
+  //  return;
+  //}
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
