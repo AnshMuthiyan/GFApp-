@@ -44,36 +44,7 @@
     }
   </style>
 
-    <script defer src="main.js"></script>
-    <script>
-      // Countdown target date (example: June 30, 2024, 00:00:00)
-      const countdownDate = new Date("2026-06-30T00:00:00").getTime();
-
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-
-        if (distance < 0) {
-          document.getElementById("countdown").innerHTML = "We have arrived!";
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML =
-          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-      });
-    </script>
+    <script defer src="main.js?v=2"></script>
   </head>
   <body>
     <h1 id="nicknameHeader">Hello, <span id="nicknameValue"></span></h1>
