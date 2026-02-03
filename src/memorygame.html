@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Matching Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #fff0f5; font-family: Arial, sans-serif; text-align: center; }
+    h2 { color: #70a2fb; margin-top: 30px; }
+    #game-board { display: flex; flex-wrap: wrap; justify-content: center; max-width: 400px; margin: 30px auto; }
+    .card { width: 80px; height: 100px; margin: 10px; background: #ffb6c1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2em; color: #fff; cursor: pointer; user-select: none; }
+    .card.flipped, .card.matched { background: #a5c4fc; color: #fff; cursor: default; }
+    .impossible-msg { color: #e75480; font-weight: bold; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Memory Matching Game</h2>
+  <div id="game-board"></div>
+  <div id="impossible-msg" class="impossible-msg"></div>
+  <script src="memorygame.js"></script>
+</body>
+</html>
