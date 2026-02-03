@@ -11,14 +11,15 @@ const answer = getQueryParam('answer');
 // Card symbols (emojis for fun)
 const symbols = ['💖','🌹','🐻','🍫','🎶','🎈','🍰','🧸'];
 
+
+// Use 5 cards (impossible) for 'no', 6 cards (possible) for 'yes' or default
 let cards = [];
 if (answer === 'no') {
-  // Odd number of cards (impossible)
-  cards = [...symbols, ...symbols.slice(0, symbols.length - 1)]; // 7 pairs + 1 extra = 15 cards
-  document.getElementById('impossible-msg').textContent = "You said no... This game is impossible!";
+  // 5 cards: 2 pairs + 1 extra (impossible)
+  cards = [symbols[0], symbols[0], symbols[1], symbols[1], symbols[2]];
 } else {
-  // Even number of cards (possible)
-  cards = [...symbols, ...symbols]; // 8 pairs = 16 cards
+  // 6 cards: 3 pairs (possible)
+  cards = [symbols[0], symbols[0], symbols[1], symbols[1], symbols[2], symbols[2]];
 }
 
 // Shuffle cards
@@ -27,9 +28,13 @@ for (let i = cards.length - 1; i > 0; i--) {
   [cards[i], cards[j]] = [cards[j], cards[i]];
 }
 
+
 const board = document.getElementById('game-board');
+const timerDisplay = document.getElementById('timer');
 let flipped = [];
 let matched = [];
+let timeLeft = 60;
+let timerInterval = null;
 
 function renderBoard() {
   board.innerHTML = '';
@@ -60,6 +65,7 @@ function handleFlip(idx) {
   }
 }
 
+
 function checkMatch() {
   const [i, j] = flipped;
   if (cards[i] === cards[j]) {
@@ -67,6 +73,68 @@ function checkMatch() {
   }
   flipped = [];
   renderBoard();
+  // Check for win
+  if (matched.length === cards.length) {
+    clearInterval(timerInterval);
+    setTimeout(() => {
+      alert('Congratulations! You completed the game!');
+      // Optionally, redirect or show a submit button here
+    }, 300);
+  }
 }
 
-renderBoard();
+function updateTimer() {
+  timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+  if (timeLeft <= 0) {
+    clearInterval(timerInterval);
+    showFailPopup();
+  }
+}
+
+function showFailPopup() {
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.background = 'rgba(0,0,0,0.7)';
+  overlay.style.display = 'flex';
+  overlay.style.flexDirection = 'column';
+  overlay.style.justifyContent = 'center';
+  overlay.style.alignItems = 'center';
+  overlay.style.zIndex = 9999;
+
+  const msg = document.createElement('div');
+  msg.textContent = 'UH OH, VERIFICATION FAILED';
+  msg.style.color = '#fff';
+  msg.style.fontSize = '2em';
+  msg.style.marginBottom = '30px';
+
+  const btn = document.createElement('button');
+  btn.textContent = 'Return to Home Page';
+  btn.style.padding = '15px 30px';
+  btn.style.fontSize = '1.2em';
+  btn.style.borderRadius = '10px';
+  btn.style.border = 'none';
+  btn.style.background = '#ffb6c1';
+  btn.style.color = '#fff';
+  btn.style.cursor = 'pointer';
+  btn.onclick = () => { window.location.href = 'index.html'; };
+
+  overlay.appendChild(msg);
+  overlay.appendChild(btn);
+  document.body.appendChild(overlay);
+}
+
+function startGame() {
+  renderBoard();
+  updateTimer();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+  }, 1000);
+}
+
+startGame();
