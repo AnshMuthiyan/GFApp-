@@ -84,6 +84,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Usage example:
     let photoUrl = getRandomPhoto();
     document.getElementById("randomPhoto").src = photoUrl;
+});
 
 function updateCountdown() {
   const countdownElement = document.getElementById("countdown");
@@ -107,4 +108,4 @@ function updateCountdown() {
 window.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-})});
+});
