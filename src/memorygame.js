@@ -18,7 +18,7 @@ if (answer === 'no') {
   // 5 cards: 2 pairs + 1 extra (impossible)
   cards = [symbols[0], symbols[0], symbols[1], symbols[1], symbols[2]];
 } else {
-  // 6 cards: 3 pairs (possible)
+  // 6 cards: 3 pairs (possible), arrange for 3x2 grid
   cards = [symbols[0], symbols[0], symbols[1], symbols[1], symbols[2], symbols[2]];
 }
 
@@ -33,11 +33,23 @@ const board = document.getElementById('game-board');
 const timerDisplay = document.getElementById('timer');
 let flipped = [];
 let matched = [];
-let timeLeft = 60;
+let timeLeft = 30;
 let timerInterval = null;
 
 function renderBoard() {
   board.innerHTML = '';
+  if (answer !== 'no') {
+    // 3x2 grid for yes version
+    board.style.display = 'grid';
+    board.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    board.style.gridTemplateRows = 'repeat(2, 1fr)';
+    board.style.gap = '15px';
+  } else {
+    board.style.display = 'flex';
+    board.style.flexWrap = 'wrap';
+    board.style.justifyContent = 'center';
+    board.style.gap = '10px';
+  }
   cards.forEach((symbol, idx) => {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'card';
@@ -68,8 +80,12 @@ function handleFlip(idx) {
 
 function checkMatch() {
   const [i, j] = flipped;
-  if (cards[i] === cards[j]) {
-    matched.push(i, j);
+    if (cards[i] === cards[j]) {
+      matched.push(i, j);
+      // If 'no' version and 2 pairs matched (4 cards), show sad message
+      if (answer === 'no' && matched.length === 4) {
+        showNoWinMessage();
+      }
   }
   flipped = [];
   renderBoard();
@@ -77,11 +93,29 @@ function checkMatch() {
   if (matched.length === cards.length) {
     clearInterval(timerInterval);
     setTimeout(() => {
-      alert('Congratulations! You completed the game!');
-      // Optionally, redirect or show a submit button here
+      if (answer !== 'no') {
+        // Go back to valentine.html and trigger the "YAY" state
+        window.location.href = 'valentine.html?success=1';
+      } else {
+        alert('Congratulations! You completed the game!');
+      }
     }, 300);
   }
 }
+  function showNoWinMessage() {
+    let msg = document.createElement('div');
+    msg.id = 'no-win-msg';
+    msg.textContent = "oh no looks like u can't win 😢";
+    msg.style.color = '#e75480';
+    msg.style.fontSize = '1.5em';
+    msg.style.margin = '20px auto';
+    msg.style.fontWeight = 'bold';
+    msg.style.textAlign = 'center';
+    // Remove if already exists
+    let old = document.getElementById('no-win-msg');
+    if (old) old.remove();
+    board.parentNode.insertBefore(msg, board.nextSibling);
+  }
 
 function updateTimer() {
   timerDisplay.textContent = `Time left: ${timeLeft} seconds`;

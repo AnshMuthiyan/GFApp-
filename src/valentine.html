@@ -13,8 +13,43 @@
   </style>
 </head>
 <body>
-  <h2>will u be my valentine?</h2>
-  <button class="valentine-btn" onclick="location.href='memorygame.html?answer=yes'">Yes</button>
-  <button class="valentine-btn" onclick="location.href='memorygame.html?answer=no'">No</button>
+  <div id="valentine-content">
+    <h2>Will you be my Valentine?</h2>
+    <button class="valentine-btn" onclick="location.href='memorygame.html?answer=yes'">Yes</button>
+    <button class="valentine-btn" onclick="location.href='memorygame.html?answer=no'">No</button>
+  </div>
+  <script>
+    function showYayValentine() {
+      const content = document.getElementById('valentine-content');
+        content.innerHTML = `
+          <h2 style="color:#e75480;font-size:2.5em;animation:pop 1s infinite alternate;">YAY WE ARE VALENTINES NOW</h2>
+          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love Gif" style="width:300px;margin:30px auto;display:block;border-radius:20px;box-shadow:0 0 20px #ffb6c1;">
+          <button onclick="window.location.href='index.html'" style="margin-top:30px;padding:15px 30px;font-size:1.2em;border-radius:10px;border:none;background:#ffb6c1;color:#fff;cursor:pointer;box-shadow:0 2px 8px #ffb6c1;transition:background 0.2s;">Return to Home Page</button>
+        `;
+      document.body.style.background = 'linear-gradient(135deg,#fff0f5 60%,#ffb6c1 100%)';
+      // Add some floating hearts effect
+      for(let i=0;i<20;i++){
+        let heart = document.createElement('div');
+        heart.textContent = '💖';
+        heart.style.position = 'fixed';
+        heart.style.left = Math.random()*100+'vw';
+        heart.style.top = Math.random()*100+'vh';
+        heart.style.fontSize = (Math.random()*2+2)+'em';
+        heart.style.opacity = 0.7;
+        heart.style.pointerEvents = 'none';
+        heart.style.animation = `floatHeart ${3+Math.random()*3}s linear infinite`;
+        document.body.appendChild(heart);
+      }
+    }
+    // Floating heart animation
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes floatHeart { 0%{transform:translateY(0);} 100%{transform:translateY(-100vh);} } @keyframes pop { 0%{transform:scale(1);} 100%{transform:scale(1.1);} }`;
+    document.head.appendChild(style);
+
+    // If redirected with ?success=1, show the YAY state
+    if (window.location.search.includes('success=1')) {
+      showYayValentine();
+    }
+  </script>
 </body>
 </html>
